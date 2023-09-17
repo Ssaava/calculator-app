@@ -1,0 +1,15 @@
+@use "functions" as f;
+@mixin flex($gap: 0px) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $gap;
+}
+@mixin switches($value) {
+  content: $value;
+  position: absolute;
+  color: rgb(0, 0, 0);
+  top: f.rem(-25);
+  left: 50%;
+  transform: translateX(-50%);
+}

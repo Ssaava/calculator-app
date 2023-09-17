@@ -1,0 +1,27 @@
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+a {
+  text-decoration: none;
+  color: rgb(11, 11, 11);
+  &:hover {
+    color: rgba(0, 0, 0, 0.4);
+  }
+}
+li {
+  list-style: none;
+}

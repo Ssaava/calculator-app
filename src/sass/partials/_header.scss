@@ -1,0 +1,58 @@
+@use "mixins" as m;
+@use "functions" as f;
+header {
+  margin-top: f.rem(25);
+  @include m.flex();
+  .toggle-mode {
+    @include m.flex(15px);
+    .toggle-buttons {
+      @include m.flex();
+      background-color: green;
+      width: f.rem(100);
+      padding: f.rem(2.5) f.rem(5);
+      border-radius: f.rem(100);
+      position: relative;
+      .switch-label {
+        width: f.rem(30);
+        height: f.rem(30);
+        border-radius: 50%;
+        position: relative;
+        cursor: pointer;
+        z-index: 3;
+        transition: color 0.5s ease-in-out;
+        &:active::before {
+          color: rgb(255, 0, 0);
+        }
+      }
+      input {
+        display: none;
+      }
+
+      .switch-input:checked + .switch-label-2 ~ .switch-selection {
+        left: calc(f.rem(105) / 3);
+      }
+      .switch-input:checked + .switch-label-3 ~ .switch-selection {
+        left: calc(f.rem(100) - f.rem(35));
+      }
+      .switch-selection {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        width: f.rem(30);
+        height: f.rem(30);
+        border-radius: 50%;
+        background-color: black;
+        transition: left 0.5s ease-out;
+      }
+      .switch-label-1::before {
+        @include m.switches("1");
+      }
+      .switch-label-2::before {
+        @include m.switches("2");
+      }
+      .switch-label-3::before {
+        @include m.switches("3");
+      }
+    }
+  }
+}

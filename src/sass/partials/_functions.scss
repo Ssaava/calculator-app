@@ -1,0 +1,8 @@
+@use "sass:math" as m;
+@function rem($value) {
+  @if m.is-unitless($value) {
+    @return m.div($value, 16) + rem;
+  } @else {
+    @error "Please remove units from number";
+  }
+}
