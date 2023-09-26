@@ -1,57 +1,72 @@
 @use "mixins" as m;
+@forward "variables";
 @use "functions" as f;
 header {
+  color: var(--txt-clr);
+  .name {
+    font-size: clamp(f.rem(20), 5vw, f.rem(30));
+  }
+  .theme {
+    font-size: clamp(f.rem(16), 5vw, f.rem(20));
+  }
   margin-top: f.rem(25);
   @include m.flex();
   .toggle-mode {
     @include m.flex(15px);
     .toggle-buttons {
       @include m.flex();
-      background-color: green;
       width: f.rem(100);
+      height: f.rem(30);
       padding: f.rem(2.5) f.rem(5);
       border-radius: f.rem(100);
+      background: var(--kp-bg-toggle);
       position: relative;
+
       .switch-label {
         width: f.rem(30);
         height: f.rem(30);
-        border-radius: 50%;
-        position: relative;
+        border-radius: 100%;
         cursor: pointer;
-        z-index: 3;
-        transition: color 0.5s ease-in-out;
-        &:active::before {
-          color: rgb(255, 0, 0);
+      }
+      @for $i from 1 through 3 {
+        .switch-label-#{$i}::before {
+          font-size: clamp(f.rem(16), 5vw, f.rem(20));
+          content: "#{$i}";
+          position: absolute;
+          top: -80%;
+          color: black;
+          @if $i == 1 {
+            left: calc(f.rem(35) / 2);
+          } @else if $i == 2 {
+            left: calc(f.rem(95) / 2);
+          } @else {
+            left: calc(f.rem(155) / 2);
+          }
         }
       }
-      input {
+
+      input[type="radio"] {
         display: none;
       }
 
-      .switch-input:checked + .switch-label-2 ~ .switch-selection {
-        left: calc(f.rem(105) / 3);
-      }
-      .switch-input:checked + .switch-label-3 ~ .switch-selection {
-        left: calc(f.rem(100) - f.rem(35));
-      }
       .switch-selection {
-        display: block;
+        width: f.rem(25);
+        height: f.rem(25);
+        border-radius: 100%;
+        background-color: rgb(0, 0, 0);
         position: absolute;
-        z-index: 1;
-        width: f.rem(30);
-        height: f.rem(30);
-        border-radius: 50%;
-        background-color: black;
-        transition: left 0.5s ease-out;
+        left: f.rem(7.5);
+        top: 50%;
+        transform: translateY(-50%);
+        transition: 0.5s;
       }
-      .switch-label-1::before {
-        @include m.switches("1");
+      #light-mode:checked ~ .switch-selection {
+        background-color: white;
+        left: f.rem(37.5);
       }
-      .switch-label-2::before {
-        @include m.switches("2");
-      }
-      .switch-label-3::before {
-        @include m.switches("3");
+      #user-mode:checked ~ .switch-selection {
+        background-color: blue;
+        left: f.rem(67.5);
       }
     }
   }
