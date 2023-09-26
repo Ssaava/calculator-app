@@ -18,8 +18,8 @@
   --k-bg-grey: hsl(30, 25%, 89%);
   --k-shadow-grey: hsl(28, 16%, 65%);
   // Text
-  --text-color-blue: hsl(221, 14%, 31%);
-  --text-color: hsl(0, 0%, 100%);
+  --txt-clr-blue: hsl(221, 14%, 31%);
+  --txt-clr: hsl(0, 0%, 100%);
 }
 // let us add the @media rule to initialize the project theme
 @media (prefers-color-scheme: dark) {

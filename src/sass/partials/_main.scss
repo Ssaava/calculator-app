@@ -1,3 +1,4 @@
+@forward "variables";
 html {
   box-sizing: border-box;
   font-size: 100%;
@@ -14,6 +15,7 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
+  background: var(--m-bg);
 }
 a {
   text-decoration: none;

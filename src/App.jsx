@@ -1,9 +1,11 @@
 import Header from "./components/header";
+import Screen from "./components/Screen";
 function App() {
   return (
     <>
       <div className="container">
         <Header />
+        <Screen />
         <div>
           Challenge by{" "}
           <a
