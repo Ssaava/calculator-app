@@ -7,12 +7,13 @@ const ToggleTheme = () => {
           name="mode"
           id="dark-mode"
           className="switch-input"
-          checked
+          defaultChecked
         />
         <label
           htmlFor="dark-mode"
           className="switch-label switch-label-1"
         ></label>
+
         <input
           type="radio"
           name="mode"
@@ -33,6 +34,7 @@ const ToggleTheme = () => {
           htmlFor="user-mode"
           className="switch-label switch-label-3"
         ></label>
+
         <div className="switch-selection"></div>
       </div>
     </>
