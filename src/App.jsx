@@ -1,3 +1,4 @@
+import ButtonsCase from "./components/ButtonsCase";
 import Header from "./components/header";
 import Screen from "./components/Screen";
 function App() {
@@ -6,6 +7,7 @@ function App() {
       <div className="container">
         <Header />
         <Screen />
+        <ButtonsCase />
         <div>
           Challenge by{" "}
           <a

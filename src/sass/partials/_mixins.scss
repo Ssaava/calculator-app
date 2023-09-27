@@ -1,9 +1,10 @@
 @use "functions" as f;
-@mixin flex($gap: 0px) {
+@mixin flex($gap: 0, $wrap: no-wrap) {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: $gap;
+  gap: f.rem($gap);
+  flex-wrap: $wrap;
 }
 @mixin switches($value) {
   content: $value;

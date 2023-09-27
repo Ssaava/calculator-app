@@ -1,0 +1,22 @@
+@forward "variables";
+@use "functions" as f;
+@use "mixins" as m;
+.button-case {
+  width: 100%;
+  border-radius: f.rem(5);
+  background: var(--kp-bg-toggle);
+  padding: f.rem(10);
+  @include m.flex(25, wrap);
+}
+.btn {
+  border-radius: f.rem(5);
+  font-size: f.rem(20);
+  font-weight: 900;
+  color: var(--txt-clr-blue);
+  box-shadow: 0 f.rem(4) var(--k-shadow-grey);
+  width: calc((100% / 4) - f.rem(20));
+  text-align: center;
+  padding: f.rem(10) f.rem(0);
+  cursor: pointer;
+  background-color: var(--k-bg-grey);
+}

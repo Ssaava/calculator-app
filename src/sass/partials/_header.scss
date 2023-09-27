@@ -12,7 +12,7 @@ header {
   margin-top: f.rem(25);
   @include m.flex();
   .toggle-mode {
-    @include m.flex(15px);
+    @include m.flex(15);
     .toggle-buttons {
       @include m.flex();
       width: f.rem(100);
@@ -27,6 +27,8 @@ header {
         height: f.rem(30);
         border-radius: 100%;
         cursor: pointer;
+        position: relative;
+        transition: 0.5s;
       }
       @for $i from 1 through 3 {
         .switch-label-#{$i}::before {
@@ -34,14 +36,8 @@ header {
           content: "#{$i}";
           position: absolute;
           top: -80%;
-          color: black;
-          @if $i == 1 {
-            left: calc(f.rem(35) / 2);
-          } @else if $i == 2 {
-            left: calc(f.rem(95) / 2);
-          } @else {
-            left: calc(f.rem(155) / 2);
-          }
+          left: 50%;
+          transform: translateX(-50%);
         }
       }
 
@@ -53,21 +49,30 @@ header {
         width: f.rem(25);
         height: f.rem(25);
         border-radius: 100%;
-        background-color: rgb(0, 0, 0);
+        background-color: var(--k-bg-toggle);
         position: absolute;
         left: f.rem(7.5);
         top: 50%;
         transform: translateY(-50%);
         transition: 0.5s;
       }
+      // #dark-mode:checked ~ .switch-label {
+      //   color: rgb(30, 20, 211);
+      // }
       #light-mode:checked ~ .switch-selection {
-        background-color: white;
+        background-color: var(--k-bg-toggle);
         left: f.rem(37.5);
       }
+      // #light-mode:checked ~ .switch-label {
+      //   color: black;
+      // }
       #user-mode:checked ~ .switch-selection {
-        background-color: blue;
+        background-color: var(--k-bg-toggle);
         left: f.rem(67.5);
       }
+      // #user-mode:checked ~ .switch-label {
+      //   color: rgb(255, 0, 0);
+      // }
     }
   }
 }
