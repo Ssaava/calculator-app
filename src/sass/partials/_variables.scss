@@ -12,14 +12,18 @@
   --s-bg: hsl(224, 36%, 15%);
   // keys
   --k-bg-blue: hsl(225, 21%, 49%);
+  --k-bg-blue-hover: hsla(225, 21%, 49%);
   --k-shadow-blue: hsl(224, 28%, 35%);
-  --k-bg-toggle: hsl(6, 63%, 50%);
+  --k-bg-red: hsl(6, 63%, 50%);
+  --k-bg-red-hover: hsla(6, 70%, 34%);
   --k-shadow-red: hsl(6, 70%, 34%);
   --k-bg-grey: hsl(30, 25%, 89%);
+  --k-bg-grey-hover: hsla(30, 25%, 89%);
   --k-shadow-grey: hsl(28, 16%, 65%);
   // Text
   --txt-clr-blue: hsl(221, 14%, 31%);
   --txt-clr: hsl(0, 0%, 100%);
+  --txt-clr-hover: hsla(0, 0%, 100%, 0.566);
 }
 // let us add the @media rule to initialize the project theme
 @media (prefers-color-scheme: dark) {

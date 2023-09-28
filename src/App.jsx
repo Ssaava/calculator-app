@@ -8,8 +8,8 @@ function App() {
         <Header />
         <Screen />
         <ButtonsCase />
-        <div>
-          Challenge by{" "}
+        <div className="author">
+          Challenge by
           <a
             href="https://www.frontendmentor.io?ref=challenge"
             target="_blank"
@@ -17,8 +17,8 @@ function App() {
           >
             Frontend Mentor
           </a>
-          . Coded by <a href="https://twitter.com/ssava_ema">Ssaava Emmanuel</a>
-          .
+          . Coded by <br />
+          <a href="https://twitter.com/ssava_ema">Ssaava Emmanuel</a>.
         </div>
       </div>
     </>

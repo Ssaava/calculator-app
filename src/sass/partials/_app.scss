@@ -1,6 +1,24 @@
+@use "functions" as f;
+@forward "variables";
 .container {
-  background-color: red;
   max-width: 550px;
   width: 95%;
   margin-inline: auto;
+}
+.author {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  font-size: clamp(f.rem(16), 5vw, f.rem(25));
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 550px;
+  width: 95%;
+  // color: var(--txt-clr-blue);
+  a {
+    color: var(--txt-clr);
+    &:hover {
+      color: var(--txt-clr-hover);
+    }
+  }
 }

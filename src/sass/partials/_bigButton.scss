@@ -1,0 +1,30 @@
+@forward "variables";
+@use "functions" as f;
+.big-btn {
+  font-size: clamp(f.rem(12), 5vw, f.rem(25));
+  width: calc((100% / 2) - f.rem(10));
+  background-color: var(--k-bg-blue);
+  padding-block: f.rem(10);
+  border-radius: f.rem(5);
+  box-shadow: 0 f.rem(4) var(--k-shadow-blue);
+  cursor: pointer;
+  color: var(--txt-clr);
+}
+.reset-key {
+  background-color: var(--k-bg-blue);
+  box-shadow: 0 f.rem(4) var(--k-shadow-blue);
+  color: var(--txt-clr);
+  &:hover {
+    background-color: var(--k-shadow-blue);
+    color: var(--txt-clr-hover);
+  }
+}
+.equals-key {
+  background-color: var(--k-bg-red);
+  box-shadow: 0 f.rem(4) var(--k-shadow-red);
+  color: var(--txt-clr);
+  &:hover {
+    background-color: var(--k-shadow-red);
+    color: var(--txt-clr-hover);
+  }
+}

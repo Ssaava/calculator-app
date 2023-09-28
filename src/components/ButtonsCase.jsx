@@ -1,3 +1,4 @@
+import BigButton from "./buttons/BigButton";
 import Button from "./buttons/Button";
 export default function ButtonsCase() {
   return (
@@ -6,7 +7,7 @@ export default function ButtonsCase() {
         <Button num={7} />
         <Button num={8} />
         <Button num={9} />
-        <Button num="DEL" />
+        <Button num="DEL" classname="special-key" />
         <Button num={4} />
         <Button num={5} />
         <Button num={6} />
@@ -19,6 +20,8 @@ export default function ButtonsCase() {
         <Button num={0} />
         <Button num="/" />
         <Button num="X" />
+        <BigButton num="RESET" />
+        <BigButton num="=" specialKey="equals-key" />
       </div>
     </>
   );

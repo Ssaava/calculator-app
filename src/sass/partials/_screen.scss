@@ -3,16 +3,16 @@
 .screen {
   width: 100%;
   margin-inline: auto;
-  padding: f.rem(20) f.rem(30);
+  padding: f.rem(20) f.rem(25);
   background-color: var(--s-bg);
   border-radius: f.rem(5);
-  margin-block: f.rem(30);
+  margin-block: f.rem(20);
   input[type="text"] {
     background: none;
     color: var(--txt-clr);
     text-align: right;
     width: 100%;
-    height: f.rem(60);
+    height: f.rem(50);
     outline: none;
     border: none;
     font-size: f.rem(40);
