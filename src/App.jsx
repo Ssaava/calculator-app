@@ -1,5 +1,5 @@
 import ButtonsCase from "./components/ButtonsCase";
-import Header from "./components/header";
+import Header from "./components/Header";
 import Screen from "./components/Screen";
 function App() {
   return (
