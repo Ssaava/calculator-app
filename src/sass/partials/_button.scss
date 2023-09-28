@@ -10,12 +10,13 @@
 }
 .btn {
   border-radius: f.rem(5);
-  font-size: clamp(f.rem(12), 5vw, f.rem(25));
+  font-size: clamp(f.rem(12), 5vw, f.rem(32));
   font-weight: 900;
   width: calc((100% / 4) - f.rem(15));
   text-align: center;
   padding-block: f.rem(10);
   cursor: pointer;
+  font-family: "League Spartan", sans-serif;
 }
 .nums {
   background-color: var(--k-bg-grey);

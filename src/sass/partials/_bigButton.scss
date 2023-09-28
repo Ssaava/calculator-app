@@ -1,7 +1,9 @@
 @forward "variables";
 @use "functions" as f;
+@use "mixins" as m;
 .big-btn {
-  font-size: clamp(f.rem(12), 5vw, f.rem(25));
+  font-family: "League Spartan", sans-serif;
+  font-size: clamp(f.rem(12), 5vw, f.rem(32));
   width: calc((100% / 2) - f.rem(10));
   background-color: var(--k-bg-blue);
   padding-block: f.rem(10);

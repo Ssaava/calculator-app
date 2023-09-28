@@ -4,17 +4,16 @@
   max-width: 550px;
   width: 95%;
   margin-inline: auto;
+  font-family: "League Spartan", sans-serif;
 }
 .author {
-  position: absolute;
-  bottom: 0;
+  font-family: "League Spartan", sans-serif;
   text-align: center;
   font-size: clamp(f.rem(16), 5vw, f.rem(25));
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: 550px;
-  width: 95%;
-  // color: var(--txt-clr-blue);
+  max-width: inherit;
+  // width: 95%;
+  margin-top: f.rem(15);
+  margin-inline: auto;
   a {
     color: var(--txt-clr);
     &:hover {
