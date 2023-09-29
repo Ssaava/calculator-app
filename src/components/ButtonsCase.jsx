@@ -1,11 +1,7 @@
 import BigButton from "./buttons/BigButton";
 import Button from "./buttons/Button";
 import PropTypes from "prop-types";
-export default function ButtonsCase() {
-  function handleClick(value) {
-    // setValue(value);
-    alert(value);
-  }
+export default function ButtonsCase({ handleClick }) {
   return (
     <>
       <div className="button-case">
@@ -41,4 +37,5 @@ export default function ButtonsCase() {
 }
 ButtonsCase.propTypes = {
   setValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  handleClick: PropTypes.func,
 };

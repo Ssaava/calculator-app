@@ -3,14 +3,17 @@ import ButtonsCase from "./components/ButtonsCase";
 import Header from "./components/Header";
 import Screen from "./components/Screen";
 function App() {
-  const [getValue, setValue] = new useState(0);
-  // setValue(10);
+  const [getValue, setValue] = new useState([0]);
+
+  function handleClick(value) {
+    setValue(value);
+  }
   return (
     <>
       <div className="container">
         <Header />
         <Screen value={getValue} />
-        <ButtonsCase />
+        <ButtonsCase handleClick={handleClick} />
         <div className="author">
           Challenge by
           <a
@@ -21,7 +24,14 @@ function App() {
             Frontend Mentor
           </a>
           . Coded by <br />
-          <a href="https://twitter.com/ssava_ema">Ssaava Emmanuel</a>.
+          <a
+            href="https://twitter.com/ssava_ema"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Ssaava Emmanuel
+          </a>
+          .
         </div>
       </div>
     </>
