@@ -1,12 +1,15 @@
+import { useState } from "react";
 import ButtonsCase from "./components/ButtonsCase";
 import Header from "./components/Header";
 import Screen from "./components/Screen";
 function App() {
+  const [getValue, setValue] = new useState(0);
+  // setValue(10);
   return (
     <>
       <div className="container">
         <Header />
-        <Screen />
+        <Screen value={getValue} />
         <ButtonsCase />
         <div className="author">
           Challenge by

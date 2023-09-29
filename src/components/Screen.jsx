@@ -1,12 +1,15 @@
-function Screen(props) {
-  console.log(props);
+import PropTypes from "prop-types";
+function Screen({ value }) {
   return (
     <>
       <div className="screen">
-        <input type="text" value={"212, 002"} />
+        <input type="text" value={value} />
       </div>
     </>
   );
 }
+Screen.propTypes = {
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+};
 
 export default Screen;

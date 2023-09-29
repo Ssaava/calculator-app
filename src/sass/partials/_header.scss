@@ -56,23 +56,23 @@ header {
         transform: translateY(-50%);
         transition: 0.5s;
       }
-      #dark-mode:checked + .switch-label {
-        color: var(--k-bg-red);
-      }
+      // #dark-mode:checked + .switch-label {
+      //   color: var(--k-bg-red);
+      // }
       #light-mode:checked ~ .switch-selection {
         background-color: var(--k-bg-grey);
         left: f.rem(37.5);
       }
-      #light-mode:checked + .switch-label {
-        color: var(--k-bg-grey);
-      }
+      // #light-mode:checked + .switch-label {
+      //   color: var(--k-bg-grey);
+      // }
       #user-mode:checked ~ .switch-selection {
         background-color: var(--k-bg-blue);
         left: f.rem(67.5);
       }
-      #user-mode:checked + .switch-label {
-        color: var(--k-bg-blue);
-      }
+      // #user-mode:checked + .switch-label {
+      //   color: var(--k-bg-blue);
+      // }
     }
   }
 }
