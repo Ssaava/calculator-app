@@ -23,9 +23,57 @@
   // Text
   --txt-clr-blue: hsl(221, 14%, 31%);
   --txt-clr: hsl(0, 0%, 100%);
+  --txt-clr-h: hsl(0, 0%, 100%);
   --txt-clr-hover: hsla(0, 0%, 100%, 0.566);
 }
 // let us add the @media rule to initialize the project theme
-@media (prefers-color-scheme: dark) {
-  // we shall have to override the themes here in the body to make the effect effective
+.light-mode {
+  /*
+    * m - main
+    * kp keypad
+    * s Screen
+    * k key
+    all styles for the dark theme
+    */
+  // backgrounds
+  --m-bg: hsl(0, 0%, 90%);
+  --kp-bg-toggle: hsl(0, 5%, 81%);
+  --s-bg: hsl(0, 0%, 93%);
+  // keys
+  --k-bg-blue: hsl(185, 42%, 37%);
+  --k-shadow-blue: hsl(185, 58%, 25%);
+  --k-bg-red: hsl(25, 98%, 40%);
+  --k-shadow-red: hsl(25, 99%, 27%);
+  --k-bg-grey: hsl(45, 7%, 89%);
+  --k-shadow-grey: hsl(35, 11%, 61%);
+  // Text
+  --txt-clr-blue: hsl(60, 10%, 19%);
+  --txt-clr: hsl(0, 0%, 100%);
+  --txt-clr-h: hsl(60, 10%, 19%);
+  --txt-clr-hover: hsla(0, 0%, 100%, 0.566);
+}
+.user-mode {
+  /*
+    * m - main
+    * kp keypad
+    * s Screen
+    * k key
+    all styles for the dark theme
+    */
+  // backgrounds
+  --m-bg: hsl(268, 75%, 9%);
+  --kp-bg-toggle: hsl(268, 71%, 12%);
+  --s-bg: hsl(268, 71%, 12%);
+  // keys
+  --k-bg-blue: hsl(281, 89%, 26%);
+  --k-shadow-blue: hsl(285, 91%, 52%);
+  --k-bg-red: hsl(176, 100%, 44%);
+  --k-shadow-red: hsl(177, 92%, 70%);
+  --k-bg-grey: hsl(268, 47%, 21%);
+  --k-shadow-grey: hsl(290, 70%, 36%);
+  // Text
+  --txt-clr-blue: hsl(52, 100%, 62%);
+  --txt-clr: hsl(0, 0%, 100%);
+  --txt-clr-h: hsl(52, 100%, 62%);
+  --txt-clr-hover: hsla(0, 0%, 100%, 0.566);
 }

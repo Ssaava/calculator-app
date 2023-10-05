@@ -4,36 +4,42 @@ import Header from "./components/Header";
 import Screen from "./components/Screen";
 function App() {
   const [getValue, setValue] = new useState([0]);
+  const [userMode, setUserMode] = new useState("");
 
+  // function to set the user mode
+  function toggleMode(mode) {
+    setUserMode(mode);
+  }
   function handleClick(value) {
     setValue(value);
   }
   return (
     <>
-      <div className="container">
-        <Header />
-        <Screen value={getValue} />
-        <ButtonsCase handleClick={handleClick} />
-        <div className="author">
-          Challenge by
-          <a
-            href="https://www.frontendmentor.io?ref=challenge"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Frontend Mentor
-          </a>
-          . Coded by <br />
-          <a
-            href="https://twitter.com/ssava_ema"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Ssaava Emmanuel
-          </a>
-          .
+      <main className={`main ${userMode}`}>
+        <div className="container">
+          <Header toggleMode={toggleMode} />
+          <Screen value={getValue} />
+          <ButtonsCase handleClick={handleClick} />
+          <div className="author">
+            Challenge by_
+            <a
+              href="https://www.frontendmentor.io?ref=challenge"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Frontend Mentor
+            </a>
+            . Coded by <br />
+            <a
+              href="https://twitter.com/ssava_ema"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Ssaava Emmanuel
+            </a>
+          </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }

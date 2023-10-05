@@ -2,12 +2,14 @@
 @forward "variables";
 @use "functions" as f;
 header {
-  color: var(--txt-clr);
+  color: var(--txt-clr-h);
   .name {
-    font-size: clamp(f.rem(20), 5vw, f.rem(30));
+    font-size: clamp(f.rem(25), 5vw, f.rem(40));
+    font-family: "League Spartan", sans-serif;
   }
   .theme {
     font-size: clamp(f.rem(16), 5vw, f.rem(20));
+    font-family: "League Spartan", sans-serif;
   }
   margin-top: f.rem(25);
   @include m.flex();
@@ -56,23 +58,14 @@ header {
         transform: translateY(-50%);
         transition: 0.5s;
       }
-      // #dark-mode:checked + .switch-label {
-      //   color: var(--k-bg-red);
-      // }
       #light-mode:checked ~ .switch-selection {
-        background-color: var(--k-bg-grey);
+        background-color: var(--k-bg-red);
         left: f.rem(37.5);
       }
-      // #light-mode:checked + .switch-label {
-      //   color: var(--k-bg-grey);
-      // }
       #user-mode:checked ~ .switch-selection {
-        background-color: var(--k-bg-blue);
+        background-color: var(--k-bg-red);
         left: f.rem(67.5);
       }
-      // #user-mode:checked + .switch-label {
-      //   color: var(--k-bg-blue);
-      // }
     }
   }
 }
