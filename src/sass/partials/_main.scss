@@ -11,11 +11,8 @@ html {
   margin: 0;
 }
 body {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  background: var(--m-bg);
 }
 a {
   text-decoration: none;

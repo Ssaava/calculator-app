@@ -7,10 +7,11 @@
   background-color: var(--s-bg);
   border-radius: f.rem(5);
   margin-block: f.rem(20);
+  font-family: "League Spartan", sans-serif;
   input[type="text"] {
     font-family: "League Spartan", sans-serif;
     background: none;
-    color: var(--txt-clr);
+    color: var(--txt-clr-h);
     text-align: right;
     width: 100%;
     height: f.rem(50);

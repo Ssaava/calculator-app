@@ -1,22 +1,30 @@
 @use "functions" as f;
 @forward "variables";
+.main {
+  width: 100vw;
+  height: calc(100vh + 100px);
+  background-color: var(--m-bg);
+}
 .container {
   max-width: 550px;
   width: 95%;
   margin-top: f.rem(30);
   margin-inline: auto;
   font-family: "League Spartan", sans-serif;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .author {
   font-family: "League Spartan", sans-serif;
   text-align: center;
   font-size: clamp(f.rem(16), 5vw, f.rem(25));
   max-width: inherit;
-  // width: 95%;
+  color: var(--k-bg-red);
   margin-top: f.rem(15);
   margin-inline: auto;
   a {
-    color: var(--txt-clr);
+    color: var(--txt-clr-h);
     &:hover {
       color: var(--txt-clr-hover);
     }

@@ -1,4 +1,5 @@
-const ToggleTheme = () => {
+import PropTypes from "prop-types";
+const ToggleTheme = ({ toggleMode }) => {
   return (
     <>
       <div className="toggle-buttons">
@@ -12,6 +13,7 @@ const ToggleTheme = () => {
         <label
           htmlFor="dark-mode"
           className="switch-label switch-label-1"
+          onClick={() => toggleMode("")}
         ></label>
 
         <input
@@ -23,6 +25,7 @@ const ToggleTheme = () => {
         <label
           htmlFor="light-mode"
           className="switch-label switch-label-2"
+          onClick={() => toggleMode("light-mode")}
         ></label>
         <input
           type="radio"
@@ -33,6 +36,7 @@ const ToggleTheme = () => {
         <label
           htmlFor="user-mode"
           className="switch-label switch-label-3"
+          onClick={() => toggleMode("user-mode")}
         ></label>
 
         <div className="switch-selection"></div>
@@ -42,3 +46,7 @@ const ToggleTheme = () => {
 };
 
 export default ToggleTheme;
+
+ToggleTheme.propTypes = {
+  toggleMode: PropTypes.func,
+};
