@@ -8,6 +8,6 @@ export default function BigButton({ num, specialKey = "reset-key", onClick }) {
 }
 BigButton.propTypes = {
   num: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  specialKey: PropTypes.string.isRequired,
+  specialKey: PropTypes.string,
   onClick: PropTypes.func,
 };

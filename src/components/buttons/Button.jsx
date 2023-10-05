@@ -8,7 +8,7 @@ export default function Button({ num, classname = "nums", onClick }) {
 }
 
 Button.propTypes = {
-  num: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-  classname: PropTypes.string.isRequired,
+  num: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  classname: PropTypes.string,
   onClick: PropTypes.func,
 };
