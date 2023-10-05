@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ButtonsCase from "./components/ButtonsCase";
 import Header from "./components/Header";
 import Screen from "./components/Screen";
@@ -6,9 +6,13 @@ function App() {
   const [getValue, setValue] = new useState([0]);
   const [userMode, setUserMode] = new useState("");
 
-  // function to set the user mode
+  useEffect(() => {
+    const themeMode = localStorage.getItem("mode") || "";
+    setUserMode(themeMode);
+  });
   function toggleMode(mode) {
     setUserMode(mode);
+    localStorage.setItem("mode", mode);
   }
   function handleClick(value) {
     setValue(value);

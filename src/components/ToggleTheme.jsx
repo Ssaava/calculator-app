@@ -1,5 +1,10 @@
 import PropTypes from "prop-types";
 const ToggleTheme = ({ toggleMode }) => {
+  // setting userMode basing on the stored localStorage value
+  const themeMode = localStorage.getItem("mode") || "";
+  const isUserModeSet = themeMode === "user-mode";
+  const isLightModeSet = themeMode === "light-mode";
+  const isDefaultModeSet = themeMode === "";
   return (
     <>
       <div className="toggle-buttons">
@@ -8,7 +13,7 @@ const ToggleTheme = ({ toggleMode }) => {
           name="mode"
           id="dark-mode"
           className="switch-input"
-          defaultChecked
+          defaultChecked={isDefaultModeSet}
         />
         <label
           htmlFor="dark-mode"
@@ -21,6 +26,7 @@ const ToggleTheme = ({ toggleMode }) => {
           name="mode"
           id="light-mode"
           className="switch-input"
+          defaultChecked={isLightModeSet}
         />
         <label
           htmlFor="light-mode"
@@ -32,6 +38,7 @@ const ToggleTheme = ({ toggleMode }) => {
           name="mode"
           id="user-mode"
           className="switch-input"
+          defaultChecked={isUserModeSet}
         />
         <label
           htmlFor="user-mode"

@@ -9,7 +9,7 @@ function Screen({ value }) {
   );
 }
 Screen.propTypes = {
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 export default Screen;
