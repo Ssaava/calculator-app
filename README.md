@@ -43,39 +43,72 @@ Users should be able to:
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
-- Mobile-first workflow
+- [sass](https://sass-lang.com/) - CSS Preprocessor
+- [npm](https://nodejs.org/en) - Package Manager
+- [Vite](https://vitejs.dev/) - Build Tool
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
 Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
 
-To see how you can add code snippets, see below:
+I am really excited to use React in this project due to the power of React Components
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<main className="{`main" ${userMode}`}>
+  <div className="container">
+    <header toggleMode="{toggleMode}" />
+    <Screen value="{currentValue}" />
+    <ButtonsCase handleClick="{handleClick}" />
+    <div className="author">
+      Challenge by_
+      <a
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Frontend Mentor
+      </a>
+      . Coded by <br />
+      <a href="https://twitter.com/ssava_ema" target="_blank" rel="noreferrer">
+        Ssaava Emmanuel
+      </a>
+    </div>
+  </div>
+</main>
 ```
 
-```css
-.proud-of-this-css {
-  color: papayawhip;
+```sass
+// Used the following sass mixin to ease the creation of flex containers
+@use "functions" as f;
+@mixin flex($gap: 0, $wrap: no-wrap) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: f.rem($gap);
+  flex-wrap: $wrap;
+}
+
+// created on function in sass to convert pixels to rems. the power of sass functions
+@use "sass:math" as m;
+@function rem($value) {
+  @if m.is-unitless($value) {
+    @return m.div($value, 16) + rem;
+  } @else {
+    @error "Please remove units from number";
+  }
 }
 ```
 
 ```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
+// proud of React useEffect() and useState() hooks that enable updating the site content without refreshing
+const [currentValue, setCurrentValue] = new useState([0]);
+const [userMode, setUserMode] = new useState("");
+useEffect(() => {
+  const themeMode = localStorage.getItem("mode") || "";
+  setUserMode(themeMode);
+});
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
