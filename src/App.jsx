@@ -103,7 +103,7 @@ function App() {
             </a>
             . Coded by <br />
             <a
-              href="https://twitter.com/ssava_ema"
+              href="https://github.com/Ssaava/calculator-app/tree/main"
               target="_blank"
               rel="noreferrer"
             >
