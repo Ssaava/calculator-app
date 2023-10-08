@@ -41,7 +41,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Add solution URL here](https://github.com/Ssaava/calculator-app/tree/main)
 - Live Site URL: [Add live site URL here](https://calculator-app-6aw.pages.dev/)
 
 ## My process
