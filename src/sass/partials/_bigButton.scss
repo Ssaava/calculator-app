@@ -17,16 +17,14 @@
   box-shadow: 0 f.rem(4) var(--k-shadow-blue);
   color: var(--txt-clr);
   &:hover {
-    background-color: var(--k-shadow-blue);
-    color: var(--txt-clr-hover);
+    background-color: var(--k-bg-blue-hover);
   }
 }
 .equals-key {
   background-color: var(--k-bg-red);
   box-shadow: 0 f.rem(4) var(--k-shadow-red);
-  color: var(--txt-clr);
+  color: var(--txt-clr-eql);
   &:hover {
-    background-color: var(--k-shadow-red);
-    color: var(--txt-clr-hover);
+    background-color: var(--k-bg-red-hover);
   }
 }
