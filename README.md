@@ -78,7 +78,7 @@ I am really excited to use React in this project due to the power of React Compo
 </main>
 ```
 
-```sass
+```scss
 // Used the following sass mixin to ease the creation of flex containers
 @use "functions" as f;
 @mixin flex($gap: 0, $wrap: no-wrap) {
