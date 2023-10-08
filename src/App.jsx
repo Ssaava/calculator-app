@@ -11,7 +11,8 @@ function App() {
     DIVIDE: "÷",
     MULTIPLY: "*",
     EQUALS: "equals",
-    RESET: "0",
+    POINT: ".",
+    RESET: "RESET",
     DELETE: "DEL",
   };
   // using useEffect hook to get the theme mode from local storage
@@ -23,20 +24,31 @@ function App() {
     setUserMode(mode);
     localStorage.setItem("mode", mode);
   }
-  function handleClick(value) {
-    value = value.toString();
-    if (currentValue == 0 || currentValue == "ERROR") {
-      setCurrentValue(value);
-    } else {
-      if (currentValue != 0) {
-        setCurrentValue(currentValue + value);
+
+  function setValue(value) {
+    // check if current value is 0. if true, set either + or -
+    if (currentValue == "0") {
+      if (value == "+" || value == "-") {
+        setCurrentValue(value);
+        return;
+      } else {
+        return;
       }
     }
+    if (currentValue[currentValue.length - 1] == value) {
+      setCurrentValue(currentValue);
+      return;
+    }
+    setCurrentValue(currentValue + value);
+  }
+  // function to handle click of buttons
+  function handleClick(value) {
+    value = value.toString();
 
     switch (value) {
       // reset button works perfectly
-      case "RESET":
-        setCurrentValue(operations.RESET);
+      case operations.RESET:
+        setCurrentValue("0");
         break;
       // delete button works perfectly
       case operations.DELETE:
@@ -45,17 +57,32 @@ function App() {
           : setCurrentValue("0");
         break;
       case operations.EQUALS:
-        // check if current value is not zero. if zero display nothing
-        if (
-          currentValue[currentValue.length - 1] != operations.ADD &&
-          currentValue[currentValue.length - 1] != operations.MULTIPLY &&
-          currentValue[currentValue.length - 1] != operations.SUBTRACT &&
-          currentValue[currentValue.length - 1] != operations.DIVIDE
-        ) {
-          setCurrentValue(eval(currentValue));
+        setCurrentValue(eval(currentValue));
+        break;
+      case operations.ADD:
+        setValue("+");
+        break;
+      case operations.POINT:
+        setValue(".");
+        break;
+      case operations.MULTIPLY:
+        setValue("*");
+        break;
+      case operations.SUBTRACT:
+        setValue("-");
+        break;
+      case operations.DIVIDE:
+        setValue("÷");
+        break;
+      default:
+        if (currentValue == 0 || currentValue == "ERROR") {
+          setCurrentValue(value);
         } else {
-          setCurrentValue("ERROR");
+          if (currentValue != 0) {
+            setCurrentValue(currentValue + value);
+          }
         }
+        break;
     }
   }
   return (

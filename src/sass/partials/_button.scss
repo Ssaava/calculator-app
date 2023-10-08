@@ -10,7 +10,7 @@
 }
 .btn {
   border-radius: f.rem(5);
-  font-size: clamp(f.rem(12), 5vw, f.rem(32));
+  font-size: clamp(f.rem(20), 5vw, f.rem(32));
   font-weight: 900;
   width: calc((100% / 4) - f.rem(15));
   text-align: center;
