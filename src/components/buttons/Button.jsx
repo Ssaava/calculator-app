@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 export default function Button({ num, classname = "nums", onClick }) {
   return (
-    <button className={`btn ${classname}`} onClick={onClick}>
+    <button type="button" className={`btn ${classname}`} onClick={onClick}>
       {num}
     </button>
   );

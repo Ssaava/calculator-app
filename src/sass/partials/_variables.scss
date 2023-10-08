@@ -12,17 +12,18 @@
   --s-bg: hsl(224, 36%, 15%);
   // keys
   --k-bg-blue: hsl(225, 21%, 49%);
-  --k-bg-blue-hover: hsla(225, 21%, 49%);
+  --k-bg-blue-hover: rgb(140, 164, 235);
   --k-shadow-blue: hsl(224, 28%, 35%);
   --k-bg-red: hsl(6, 63%, 50%);
-  --k-bg-red-hover: hsla(6, 70%, 34%);
+  --k-bg-red-hover: rgb(230, 118, 106);
   --k-shadow-red: hsl(6, 70%, 34%);
   --k-bg-grey: hsl(30, 25%, 89%);
-  --k-bg-grey-hover: hsla(30, 25%, 89%);
+  --k-bg-grey-hover: rgb(247, 247, 247);
   --k-shadow-grey: hsl(28, 16%, 65%);
   // Text
   --txt-clr-blue: hsl(221, 14%, 31%);
   --txt-clr: hsl(0, 0%, 100%);
+  --txt-clr-eql: hsl(0, 0%, 100%);
   --txt-clr-h: hsl(0, 0%, 100%);
   --txt-clr-hover: hsla(0, 0%, 100%, 0.566);
 }
@@ -42,13 +43,17 @@
   // keys
   --k-bg-blue: hsl(185, 42%, 37%);
   --k-shadow-blue: hsl(185, 58%, 25%);
+  --k-bg-blue-hover: hsl(175, 56%, 47%);
   --k-bg-red: hsl(25, 98%, 40%);
   --k-shadow-red: hsl(25, 99%, 27%);
+  --k-bg-red-hover: rgb(255, 146, 79);
   --k-bg-grey: hsl(45, 7%, 89%);
+  --k-bg-grey-hover: rgb(255, 255, 255);
   --k-shadow-grey: hsl(35, 11%, 61%);
   // Text
   --txt-clr-blue: hsl(60, 10%, 19%);
   --txt-clr: hsl(0, 0%, 100%);
+  --txt-clr-eql: hsl(0, 0%, 100%);
   --txt-clr-h: hsl(60, 10%, 19%);
   --txt-clr-hover: hsla(0, 0%, 100%, 0.566);
 }
@@ -67,13 +72,17 @@
   // keys
   --k-bg-blue: hsl(281, 89%, 26%);
   --k-shadow-blue: hsl(285, 91%, 52%);
+  --k-bg-blue-hover: hsl(285, 88%, 37%);
   --k-bg-red: hsl(176, 100%, 44%);
+  --k-bg-red-hover: hsl(177, 92%, 70%);
   --k-shadow-red: hsl(177, 92%, 70%);
   --k-bg-grey: hsl(268, 47%, 21%);
+  --k-bg-grey-hover: hsla(268, 70%, 38%, 0.763);
   --k-shadow-grey: hsl(290, 70%, 36%);
   // Text
   --txt-clr-blue: hsl(52, 100%, 62%);
   --txt-clr: hsl(0, 0%, 100%);
+  --txt-clr-eql: hsl(0, 0%, 11%);
   --txt-clr-h: hsl(52, 100%, 62%);
   --txt-clr-hover: hsla(0, 0%, 100%, 0.566);
 }

@@ -10,7 +10,7 @@
 }
 .btn {
   border-radius: f.rem(5);
-  font-size: clamp(f.rem(12), 5vw, f.rem(32));
+  font-size: clamp(f.rem(20), 5vw, f.rem(32));
   font-weight: 900;
   width: calc((100% / 4) - f.rem(15));
   text-align: center;
@@ -23,8 +23,7 @@
   color: var(--txt-clr-blue);
   box-shadow: 0 f.rem(4) var(--k-shadow-grey);
   &:hover {
-    background-color: var(--k-shadow-grey);
-    color: var(--txt-clr-hover);
+    background-color: var(--k-bg-grey-hover);
   }
 }
 .special-key {
@@ -32,7 +31,6 @@
   background-color: var(--k-bg-blue);
   box-shadow: 0 f.rem(4) var(--k-shadow-blue);
   &:hover {
-    background-color: var(--k-shadow-blue);
-    color: var(--txt-clr-hover);
+    background-color: var(--k-bg-blue-hover);
   }
 }
