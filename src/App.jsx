@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ButtonsCase from "./components/ButtonsCase";
 import Header from "./components/Header";
 import Screen from "./components/Screen";
+import { Add } from "./operations";
 function App() {
   const [currentValue, setCurrentValue] = new useState([0]);
   const [userMode, setUserMode] = new useState("");
@@ -44,6 +45,7 @@ function App() {
   // function to handle click of buttons
   function handleClick(value) {
     value = value.toString();
+    const testOperators = /[+-/*]/;
 
     switch (value) {
       // reset button works perfectly
@@ -60,8 +62,22 @@ function App() {
         setCurrentValue(eval(currentValue));
         break;
       case operations.ADD:
+        if (
+          testOperators.test(currentValue) &&
+          currentValue[currentValue.length - 1] != operations.ADD
+        ) {
+          const symbol =
+            currentValue.match(/\+/) ||
+            currentValue.match(/-/) ||
+            currentValue.match(/\*/) ||
+            currentValue.match(/÷/);
+          console.log(symbol);
+          setCurrentValue(Add(symbol[0], currentValue));
+          break;
+        }
         setValue("+");
         break;
+
       case operations.POINT:
         setValue(".");
         break;
