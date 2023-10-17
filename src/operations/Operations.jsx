@@ -4,4 +4,4 @@ const Operations = {
   DIVIDE: "÷",
   MULTIPLY: "*",
 };
-export default Operations;
+export { Operations };
