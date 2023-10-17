@@ -23,7 +23,7 @@ export default function ButtonsCase({ handleClick }) {
         <Button num="-" onClick={() => handleClick("-")} />
         <Button num="." onClick={() => handleClick(".")} />
         <Button num={0} onClick={() => handleClick(0)} />
-        <Button num="/" onClick={() => handleClick("÷")} />
+        <Button num="/" onClick={() => handleClick("/")} />
         <Button num="X" onClick={() => handleClick("*")} />
         <BigButton num="RESET" onClick={() => handleClick("RESET")} />
         <BigButton
