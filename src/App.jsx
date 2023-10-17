@@ -2,14 +2,20 @@ import { useState, useEffect } from "react";
 import ButtonsCase from "./components/ButtonsCase";
 import Header from "./components/Header";
 import Screen from "./components/Screen";
-import { Add } from "./operations";
+import Symbol, {
+  Multiply,
+  Equals,
+  Divide,
+  Subtract,
+  Add,
+} from "./operations/Operations";
 function App() {
   const [currentValue, setCurrentValue] = new useState([0]);
   const [userMode, setUserMode] = new useState("");
   const operations = {
     ADD: "+",
     SUBTRACT: "-",
-    DIVIDE: "÷",
+    DIVIDE: "/",
     MULTIPLY: "*",
     EQUALS: "equals",
     POINT: ".",
@@ -28,6 +34,7 @@ function App() {
 
   function setValue(value) {
     // check if current value is 0. if true, set either + or -
+
     if (currentValue == "0") {
       if (value == "+" || value == "-") {
         setCurrentValue(value);
@@ -59,36 +66,87 @@ function App() {
           : setCurrentValue("0");
         break;
       case operations.EQUALS:
-        setCurrentValue(eval(currentValue));
+        if (currentValue != "0") {
+          const symbol = Symbol(currentValue);
+          const answer = Equals(symbol[0], currentValue);
+          setCurrentValue(answer);
+        }
+        break;
+      case operations.POINT:
+        setValue(".");
         break;
       case operations.ADD:
+        // replace operator with plus incase it is the last one in the line when + is placed
+
+        if (/[-/*]/.test(currentValue[currentValue.length - 1])) {
+          setCurrentValue(currentValue.slice(0, currentValue.length - 1) + "+");
+          break;
+        }
         if (
           testOperators.test(currentValue) &&
           currentValue[currentValue.length - 1] != operations.ADD
         ) {
-          const symbol =
-            currentValue.match(/\+/) ||
-            currentValue.match(/-/) ||
-            currentValue.match(/\*/) ||
-            currentValue.match(/÷/);
-          console.log(symbol);
+          const symbol = Symbol(currentValue);
           setCurrentValue(Add(symbol[0], currentValue));
           break;
         }
+
         setValue("+");
         break;
-
-      case operations.POINT:
-        setValue(".");
-        break;
+      // working on the Multiply button when pressed
       case operations.MULTIPLY:
+        if (/[-/+]/.test(currentValue[currentValue.length - 1])) {
+          if (currentValue === "+" || currentValue === "-") {
+            break;
+          }
+          setCurrentValue(currentValue.slice(0, currentValue.length - 1) + "*");
+          break;
+        }
+        if (
+          testOperators.test(currentValue) &&
+          currentValue[currentValue.length - 1] != operations.MULTIPLY
+        ) {
+          const symbol = Symbol(currentValue);
+          setCurrentValue(Multiply(symbol[0], currentValue));
+          break;
+        }
         setValue("*");
         break;
+
       case operations.SUBTRACT:
+        if (/[+/*]/.test(currentValue[currentValue.length - 1])) {
+          setCurrentValue(currentValue.slice(0, currentValue.length - 1) + "-");
+          break;
+        }
+        if (
+          testOperators.test(currentValue) &&
+          currentValue[currentValue.length - 1] != operations.SUBTRACT
+        ) {
+          const symbol = Symbol(currentValue);
+          setCurrentValue(Subtract(symbol[0], currentValue));
+          break;
+        }
         setValue("-");
         break;
+
+      // Divide button actions
       case operations.DIVIDE:
-        setValue("÷");
+        if (/[-*+]/.test(currentValue[currentValue.length - 1])) {
+          if (currentValue === "+" || currentValue === "-") {
+            break;
+          }
+          setCurrentValue(currentValue.slice(0, currentValue.length - 1) + "/");
+          break;
+        }
+        if (
+          testOperators.test(currentValue) &&
+          currentValue[currentValue.length - 1] != operations.DIVIDE
+        ) {
+          const symbol = Symbol(currentValue);
+          setCurrentValue(Divide(symbol[0], currentValue));
+          break;
+        }
+        setValue("/");
         break;
       default:
         if (currentValue == 0 || currentValue == "ERROR") {
