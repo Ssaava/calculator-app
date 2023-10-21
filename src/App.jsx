@@ -43,6 +43,7 @@ function App() {
         return;
       }
     }
+
     if (currentValue[currentValue.length - 1] == value) {
       setCurrentValue(currentValue);
       return;
@@ -66,8 +67,9 @@ function App() {
           : setCurrentValue("0");
         break;
       case operations.EQUALS:
-        if (currentValue != "0") {
-          const symbol = Symbol(currentValue);
+        if (currentValue) {
+          const symbol = Symbol(currentValue) || "";
+          console.log(symbol);
           const answer = Equals(symbol[0], currentValue);
           setCurrentValue(answer);
         }
