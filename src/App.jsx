@@ -92,7 +92,6 @@ function App() {
           setCurrentValue(Add(symbol[0], currentValue));
           break;
         }
-
         setValue("+");
         break;
       // working on the Multiply button when pressed
