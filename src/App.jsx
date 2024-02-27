@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ButtonsCase from "./components/ButtonsCase";
+import ButtonsCase from "./components/buttons/ButtonsCase";
 import Header from "./components/Header";
 import Screen from "./components/Screen";
 import Symbol, {

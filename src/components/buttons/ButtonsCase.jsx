@@ -1,5 +1,5 @@
-import BigButton from "./buttons/BigButton";
-import Button from "./buttons/Button";
+import BigButton from "./BigButton";
+import Button from "./SmallButton";
 import PropTypes from "prop-types";
 export default function ButtonsCase({ handleClick }) {
   return (
