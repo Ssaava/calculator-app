@@ -9,6 +9,8 @@ import Symbol, {
   Subtract,
   Add,
 } from "./operations/Operations";
+
+// main project starts here
 function App() {
   const [currentValue, setCurrentValue] = new useState([0]);
   const [userMode, setUserMode] = new useState("");
@@ -32,9 +34,9 @@ function App() {
     localStorage.setItem("mode", mode);
   }
 
+  // function to set values
   function setValue(value) {
-    // check if current value is 0. if true, set either + or -
-
+    // check if current value is 0. if true, set either + or - else return
     if (currentValue == "0") {
       if (value == "+" || value == "-") {
         setCurrentValue(value);
@@ -43,11 +45,12 @@ function App() {
         return;
       }
     }
-
+    // what does the function below do?
     if (currentValue[currentValue.length - 1] == value) {
       setCurrentValue(currentValue);
       return;
     }
+    // concatnate the strings to be displayed on the screen
     setCurrentValue(currentValue + value);
   }
   // function to handle click of buttons
@@ -66,6 +69,8 @@ function App() {
           ? setCurrentValue(currentValue.slice(0, currentValue.length - 1))
           : setCurrentValue("0");
         break;
+
+      // equal button works fine but not with the decimal point
       case operations.EQUALS:
         if (currentValue) {
           const symbol = Symbol(currentValue) || "";
@@ -74,12 +79,15 @@ function App() {
           setCurrentValue(answer);
         }
         break;
+
+      // decimal point button not yet working
       case operations.POINT:
         setValue(".");
         break;
-      case operations.ADD:
-        // replace operator with plus incase it is the last one in the line when + is placed
 
+      // addition operator
+      case operations.ADD:
+        // set the operation to a + incase there are other operations
         if (/[-/*]/.test(currentValue[currentValue.length - 1])) {
           setCurrentValue(currentValue.slice(0, currentValue.length - 1) + "+");
           break;
@@ -94,6 +102,7 @@ function App() {
         }
         setValue("+");
         break;
+
       // working on the Multiply button when pressed
       case operations.MULTIPLY:
         if (/[-/+]/.test(currentValue[currentValue.length - 1])) {
@@ -149,8 +158,14 @@ function App() {
         }
         setValue("/");
         break;
+
+      // the default operations to be carried out
       default:
-        if (currentValue == 0 || currentValue == "ERROR") {
+        if (
+          currentValue == 0 ||
+          currentValue == "ERROR" ||
+          currentValue == "NaN"
+        ) {
           setCurrentValue(value);
         } else {
           if (currentValue != 0) {
@@ -190,5 +205,4 @@ function App() {
     </>
   );
 }
-
 export default App;
