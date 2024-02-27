@@ -1,9 +1,5 @@
-const Operations = {
-  ADD: "+",
-  SUBTRACT: "-",
-  DIVIDE: "/",
-  MULTIPLY: "*",
-};
+import { Operations } from "../components/functions/Functions";
+
 // function to work on the decimal points
 function decimalAdjust(type, value, exp) {
   type = String(type);
@@ -26,15 +22,6 @@ function decimalAdjust(type, value, exp) {
   return Number(`${newMagnitude}e${+newExponent + exp}`);
 }
 
-// ends here
-function Symbol(currentValue) {
-  const symbol =
-    currentValue.match(/\+/) ||
-    currentValue.match(/-/) ||
-    currentValue.match(/\*/) ||
-    currentValue.match(/\//);
-  return symbol;
-}
 // Addition Functionality
 const Add = (operator, currentValue) => {
   let result = 0;
@@ -42,20 +29,17 @@ const Add = (operator, currentValue) => {
   int1 = Number(int1);
   int2 = Number(int2);
   let answer = 0;
-  if (currentValue.includes(operator)) {
-    answer = int1 + int2;
-  }
-  if (currentValue.includes(Operations.MULTIPLY)) {
-    answer = int1 * int2;
-  }
+  if (currentValue.includes(operator)) answer = int1 + int2;
+
+  if (currentValue.includes(Operations.MULTIPLY)) answer = int1 * int2;
+
   if (currentValue.includes(Operations.DIVIDE)) {
+    if (int2 === 0) return "ERROR";
     answer = int1 / int2;
   }
-  if (currentValue.includes(Operations.SUBTRACT)) {
-    answer = int1 - int2;
-  }
+  if (currentValue.includes(Operations.SUBTRACT)) answer = int1 - int2;
 
-  result = decimalAdjust("round", answer, -4).toString() + "+";
+  result = decimalAdjust("round", answer, -9).toString() + "+";
   return result;
 };
 
@@ -66,20 +50,17 @@ const Subtract = (operator, currentValue) => {
   int1 = Number(int1);
   int2 = Number(int2);
   let answer = 0;
-  if (currentValue.includes(operator)) {
-    answer = int1 - int2;
-  }
-  if (currentValue.includes(Operations.MULTIPLY)) {
-    answer = int1 * int2;
-  }
+  if (currentValue.includes(operator)) answer = int1 - int2;
+
+  if (currentValue.includes(Operations.MULTIPLY)) answer = int1 * int2;
+
   if (currentValue.includes(Operations.DIVIDE)) {
+    if (int2 === 0) return "ERROR";
     answer = int1 / int2;
   }
-  if (currentValue.includes(Operations.ADD)) {
-    answer = int1 + int2;
-  }
+  if (currentValue.includes(Operations.ADD)) answer = int1 + int2;
 
-  result = decimalAdjust("round", answer, -4).toString() + "+";
+  result = decimalAdjust("round", answer, -9).toString() + "+";
   return result;
 };
 
@@ -90,20 +71,17 @@ const Multiply = (operator, currentValue) => {
   int1 = Number(int1);
   int2 = Number(int2);
   let answer = 0;
-  if (currentValue.includes(operator)) {
-    answer = int1 * int2;
-  }
-  if (currentValue.includes(Operations.ADD)) {
-    answer = int1 + int2;
-  }
+  if (currentValue.includes(operator)) answer = int1 * int2;
+
+  if (currentValue.includes(Operations.ADD)) answer = int1 + int2;
+
   if (currentValue.includes(Operations.DIVIDE)) {
+    if (int2 === 0) return "ERROR";
     answer = int1 / int2;
   }
-  if (currentValue.includes(Operations.SUBTRACT)) {
-    answer = int1 - int2;
-  }
+  if (currentValue.includes(Operations.SUBTRACT)) answer = int1 - int2;
 
-  result = decimalAdjust("round", answer, -4).toString() + "*";
+  result = decimalAdjust("round", answer, -9).toString() + "*";
   return result;
 };
 // Divide Functionality
@@ -113,20 +91,18 @@ const Divide = (operator, currentValue) => {
   int1 = Number(int1);
   int2 = Number(int2);
   let answer = 0;
+
   if (currentValue.includes(operator)) {
+    if (int2 === 0) return "ERROR";
     answer = int1 / int2;
   }
-  if (currentValue.includes(Operations.ADD)) {
-    answer = int1 + int2;
-  }
-  if (currentValue.includes(Operations.MULTIPLY)) {
-    answer = int1 * int2;
-  }
-  if (currentValue.includes(Operations.SUBTRACT)) {
-    answer = int1 - int2;
-  }
+  if (currentValue.includes(Operations.ADD)) answer = int1 + int2;
 
-  result = decimalAdjust("round", answer, -4).toString() + "/";
+  if (currentValue.includes(Operations.MULTIPLY)) answer = int1 * int2;
+
+  if (currentValue.includes(Operations.SUBTRACT)) answer = int1 - int2;
+
+  result = decimalAdjust("round", answer, -9).toString() + "/";
   return result;
 };
 
@@ -137,25 +113,22 @@ const Equals = (operator, currentValue) => {
   int1 = Number(int1);
   int2 = Number(int2);
   let answer = 0;
-  if (currentValue[currentValue.length - 1] === "." && operator == undefined) {
+  if (currentValue[currentValue.length - 1] === "." && operator == undefined)
     return currentValue + "0";
-  }
-  if (currentValue.includes(Operations.MULTIPLY)) {
-    answer = int1 * int2;
-  }
-  if (currentValue.includes(Operations.ADD)) {
-    answer = int1 + int2;
-  }
+
+  if (currentValue.includes(Operations.MULTIPLY)) answer = int1 * int2;
+
+  if (currentValue.includes(Operations.ADD)) answer = int1 + int2;
+
   if (currentValue.includes(Operations.DIVIDE)) {
+    if (int2 === 0) return "ERROR";
     answer = int1 / int2;
   }
-  if (currentValue.includes(Operations.SUBTRACT)) {
-    answer = int1 - int2;
-  }
+  if (currentValue.includes(Operations.SUBTRACT)) answer = int1 - int2;
 
-  result = decimalAdjust("round", answer, -4).toString();
+  result = decimalAdjust("round", answer, -9).toString();
   return result;
 };
 
-export default Symbol;
-export { Operations, Multiply, Equals, Divide, Subtract, Add };
+// export default Symbol;
+export { Multiply, Equals, Divide, Subtract, Add };
