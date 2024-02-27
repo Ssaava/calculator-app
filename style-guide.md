@@ -91,3 +91,14 @@ The designs were created to the following widths:
 
 - Family: [League Spartan](https://fonts.google.com/specimen/League+Spartan)
 - Weights: 700
+
+- Hope fully we can keep track of the clicked operators and operands and finally display result on pressing equals button
+
+## What to follow when doing the calculations
+
+- Step 1:
+  - Get to know the variables that will be used in the entire app logic
+  - for this case, we need three variables
+    - keep track of previous value pressed
+    - keep track of the current value
+    - keep track of the results that will be displayed on the screen
