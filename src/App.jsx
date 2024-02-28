@@ -20,16 +20,7 @@ function App() {
   const [currentValue, setCurrentValue] = new useState([0]);
 
   const [userMode, setUserMode] = new useState("");
-  // const Operations = {
-  //   ADD: "+",
-  //   SUBTRACT: "-",
-  //   DIVIDE: "/",
-  //   MULTIPLY: "*",
-  //   EQUALS: "equals",
-  //   DECIMAL: ".",
-  //   RESET: "RESET",
-  //   DELETE: "DEL",
-  // };
+
   // using useEffect hook to get the theme mode from local storage
   useEffect(() => {
     const themeMode = localStorage.getItem("mode") || "";
@@ -47,9 +38,7 @@ function App() {
       if (value == Operations.ADD || value == Operations.SUBTRACT) {
         setCurrentValue(value);
         return;
-      } else {
-        return;
-      }
+      } else return;
     }
     // what does the function below do? probably it prevents putting more than one decimal on a single number
     // if (currentValue[currentValue.length - 1] == value) {
@@ -79,7 +68,7 @@ function App() {
       )
         return;
       return;
-    } // we need now to know on which value the decimal is
+    }
 
     // concatnate the strings to be displayed on the screen
     setCurrentValue(currentValue + value);
@@ -104,6 +93,10 @@ function App() {
       // equal button works fine but not with the decimal point
       case Operations.EQUALS:
         if (currentValue) {
+          if (Number(currentValue) > 0) {
+            setCurrentValue(currentValue);
+            return;
+          }
           const symbol = Symbol(currentValue) || "";
           console.log(symbol);
           const answer = Equals(symbol[0], currentValue);
@@ -126,11 +119,6 @@ function App() {
           break;
         }
 
-        // add Symbol when decimal point is present in current value
-        // if (currentValue.includes(".") && !currentValue.includes("+")) {
-        //   setCurrentValue(currentValue + "+");
-        //   break;
-        // }
         handleDecimal(currentValue, Operations.ADD, setCurrentValue);
 
         if (
@@ -143,6 +131,27 @@ function App() {
           break;
         }
         setValue(Operations.ADD);
+        break;
+
+      case Operations.SUBTRACT:
+        if (/[+/*]/.test(currentValue[currentValue.length - 1])) {
+          setCurrentValue(
+            currentValue.slice(0, currentValue.length - 1) + Operations.SUBTRACT
+          );
+          break;
+        }
+
+        // add Symbol when decimal point is present in current value
+        handleDecimal(currentValue, Operations.SUBTRACT, setCurrentValue);
+        if (
+          testOperators.test(currentValue) &&
+          currentValue[currentValue.length - 1] != Operations.SUBTRACT
+        ) {
+          const symbol = Symbol(currentValue);
+          setCurrentValue(Subtract(symbol[0], currentValue));
+          break;
+        }
+        setValue(Operations.SUBTRACT);
         break;
 
       // working on the Multiply button when pressed
@@ -172,27 +181,6 @@ function App() {
           break;
         }
         setValue(Operations.MULTIPLY);
-        break;
-
-      case Operations.SUBTRACT:
-        if (/[+/*]/.test(currentValue[currentValue.length - 1])) {
-          setCurrentValue(
-            currentValue.slice(0, currentValue.length - 1) + Operations.SUBTRACT
-          );
-          break;
-        }
-
-        // add Symbol when decimal point is present in current value
-        handleDecimal(currentValue, Operations.SUBTRACT, setCurrentValue);
-        if (
-          testOperators.test(currentValue) &&
-          currentValue[currentValue.length - 1] != Operations.SUBTRACT
-        ) {
-          const symbol = Symbol(currentValue);
-          setCurrentValue(Subtract(symbol[0], currentValue));
-          break;
-        }
-        setValue(Operations.SUBTRACT);
         break;
 
       // Divide button actions
