@@ -233,7 +233,7 @@ function App() {
       <main className={`main ${userMode}`}>
         <div className="container">
           <Header toggleMode={toggleMode} />
-          <Screen value={currentValue} />
+          <Screen value={currentValue} handleClick={handleClick} />
           <ButtonsCase handleClick={handleClick} />
           <div className="author">
             Challenge by_
